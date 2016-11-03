@@ -20,12 +20,15 @@ import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
 import PerfectMustache
+import Foundation
 
 // Create HTTP server.
 let server = HTTPServer()
 
 // Set the webroot directory so static files such as the logo, can be served
-server.documentRoot = "./webroot"
+//server.documentRoot = "./webroot"
+server.documentRoot = "\(FileManager.default.currentDirectoryPath)/webroot"
+print("DocumentRoot = \(server.documentRoot)")
 
 // Create the container variable for routes to be added to.
 var routes = Routes()
